@@ -8,12 +8,11 @@ import { fileURLToPath } from "node:url";
 
 export default {
   async fetch(req: Request): Promise<Response> {
-    const selfSrc = await readFile(fileURLToPath(import.meta.url), 'utf8')
+    const code = await readFile(fileURLToPath(import.meta.url), 'utf8')
 
     const editor = await renderToWebComponent(
-      selfSrc,
+      { code, filename: "/api/server.js" },
       {
-        language: "typescript",
         userAgent: req.headers.get("user-agent"), // use system font
       },
     );
