@@ -20,6 +20,8 @@ export default {
       /* html */ `
       <html>
       <head>
+        <title>Modern Monaco Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style> body { background-color: #121212 } </style>
       </head>
       <body>
