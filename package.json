@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "srvx"
+    "dev": "srvx api/server.ts"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
