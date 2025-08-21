@@ -1,19 +1,33 @@
 import { renderToWebComponent } from "modern-monaco/ssr";
+import { codeToANSI } from "@shikijs/cli";
 
 // Demo displays its own server code inside the editor
 // Powered by https://github.com/esm-dev/modern-monaco
 // Demo source: https://github.com/pi0/modern-monaco-demo
 
+const RAW_SOURCE =
+  "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
+
 export default {
   async fetch(req: Request): Promise<Response> {
-    const code = await fetch("https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts").then(r => r.text());
+    const code = await fetch(RAW_SOURCE).then((r) => r.text());
+
+    const userAgent = req.headers.get("user-agent");
+
+    if (userAgent.startsWith("curl/")) {
+      const ansi = await codeToANSI(code, "typescript", "min-dark");
+      return new Response(ansi, {
+        headers: {
+          "x-ansi-length": "" + Buffer.byteLength(ansi),
+        },
+      });
+    }
 
     const editor = await renderToWebComponent(
       { code, filename: "server.ts" },
-      {
-        userAgent: req.headers.get("user-agent"), // use system font
-      },
+      { userAgent /* use system font */ }
     );
+
     return new Response(
       /* html */ `
       <html>
@@ -40,7 +54,7 @@ export default {
         });
       </script>
     `,
-      { headers: { "Content-Type": "text/html" } },
+      { headers: { "Content-Type": "text/html" } }
     );
   },
 };
