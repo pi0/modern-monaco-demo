@@ -1,15 +1,19 @@
 {
   "name": "modern-monaco-demo",
+  "version": "deploy",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "srvx api/server.ts"
   },
-  "devDependencies": {
+  "dependencies": {
     "@shikijs/cli": "^3.11.0",
-    "@types/node": "^24.3.0",
-    "modern-monaco": "^0.1.3",
-    "srvx": "^0.8.6"
+    "modern-monaco": "^0.1.3"
   },
-  "version": "deploy"
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "srvx": "^0.8.6",
+    "typescript": "^5.9.2"
+  },
+  "packageManager": "pnpm@10.15.0"
 }

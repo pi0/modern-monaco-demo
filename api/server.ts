@@ -15,12 +15,7 @@ export default {
     const userAgent = req.headers.get("user-agent");
 
     if (userAgent.startsWith("curl/")) {
-      const ansi = await codeToANSI(code, "typescript", "min-dark");
-      return new Response(ansi, {
-        headers: {
-          "x-ansi-length": "" + Buffer.byteLength(ansi),
-        },
-      });
+      return new Response(await codeToANSI(code, "typescript", "min-dark"));
     }
 
     const editor = await renderToWebComponent(
@@ -46,7 +41,8 @@ export default {
             typescript: {
               importMap: {
                 imports: {
-                  "modern-monaco/": "https://esm.sh/modern-monaco/"
+                  "modern-monaco/": "https://esm.sh/modern-monaco/",
+                  "@shikijs/": "https://esm.sh/@shikijs/"
                 },
               },
             },
