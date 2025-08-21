@@ -1,5 +1,4 @@
 import { renderToWebComponent } from "modern-monaco/ssr";
-import { codeToANSI } from "@shikijs/cli";
 
 // Demo displays its own server code inside the editor
 // Powered by https://github.com/esm-dev/modern-monaco
@@ -15,6 +14,8 @@ export default {
     const userAgent = req.headers.get("user-agent");
 
     if (userAgent.startsWith("curl/")) {
+      delete process.env.NO_COLOR;
+      const { codeToANSI } = await import("@shikijs/cli");
       return new Response(await codeToANSI(code, "typescript", "min-dark"));
     }
 
