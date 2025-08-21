@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "devCommand": "srvx api/server.ts",
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/server" }]
+}
