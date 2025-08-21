@@ -1,6 +1,4 @@
 import { renderToWebComponent } from "modern-monaco/ssr";
-import { readFile } from 'node:fs/promises';
-import { fileURLToPath } from "node:url";
 
 // Demo displays its own server code inside the editor
 // Powered by https://github.com/esm-dev/modern-monaco
@@ -8,10 +6,10 @@ import { fileURLToPath } from "node:url";
 
 export default {
   async fetch(req: Request): Promise<Response> {
-    const code = await readFile(fileURLToPath(import.meta.url), 'utf8')
+    const code = await fetch('https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts').then(r => r.text())
 
     const editor = await renderToWebComponent(
-      { code, filename: "/api/server.js" },
+      { code, filename: "server.ts" },
       {
         userAgent: req.headers.get("user-agent"), // use system font
       },
