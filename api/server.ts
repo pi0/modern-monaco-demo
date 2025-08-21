@@ -6,7 +6,7 @@ import { renderToWebComponent } from "modern-monaco/ssr";
 
 export default {
   async fetch(req: Request): Promise<Response> {
-    const code = await fetch('https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts').then(r => r.text())
+    const code = await fetch("https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts").then(r => r.text());
 
     const editor = await renderToWebComponent(
       { code, filename: "server.ts" },
@@ -26,7 +26,18 @@ export default {
       ${editor}
       <script type="module">
         import { hydrate } from "https://esm.sh/modern-monaco";
-        hydrate(); // hydrate the editor
+        // hydrate the editor
+        hydrate({
+          lsp: {
+            typescript: {
+              importMap: {
+                imports: {
+                  "modern-monaco/": "https://esm.sh/modern-monaco/"
+                },
+              },
+            },
+          },
+        });
       </script>
     `,
       { headers: { "Content-Type": "text/html" } },
