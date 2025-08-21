@@ -15,6 +15,7 @@ export default {
 
     if (userAgent.startsWith("curl/")) {
       delete process.env.NO_COLOR;
+      process.env.FORCE_COLOR = "2"; // 256 colors
       const { codeToANSI } = await import("@shikijs/cli");
       return new Response(await codeToANSI(code, "typescript", "min-dark"));
     }
