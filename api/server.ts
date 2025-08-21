@@ -7,6 +7,8 @@ import { renderToWebComponent } from "modern-monaco/ssr";
 const RAW_SOURCE =
   "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
 
+const THEME = "min-dark";
+
 export default {
   async fetch(req: Request): Promise<Response> {
     const code = await fetch(RAW_SOURCE).then((r) => r.text());
@@ -14,15 +16,15 @@ export default {
     const userAgent = req.headers.get("user-agent");
 
     if (userAgent.startsWith("curl/")) {
-      delete process.env.NO_COLOR;
-      process.env.FORCE_COLOR = "2"; // 256 colors
+      delete globalThis.process.env.NO_COLOR;
+      globalThis.process.env.FORCE_COLOR = "2"; // 256 colors
       const { codeToANSI } = await import("@shikijs/cli");
-      return new Response(await codeToANSI(code, "typescript", "min-dark"));
+      return new Response(await codeToANSI(code, "typescript", THEME));
     }
 
     const editor = await renderToWebComponent(
       { code, filename: "server.ts" },
-      { userAgent /* use system font */ }
+      { theme: THEME, userAgent /* use system font */ }
     );
 
     return new Response(
