@@ -4,7 +4,8 @@ import { renderToWebComponent } from "modern-monaco/ssr";
 // Powered by https://github.com/esm-dev/modern-monaco
 // Demo source: https://github.com/pi0/modern-monaco-demo
 
-const RAW_SOURCE = "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
+const RAW_SOURCE =
+  "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
 
 const THEMES = [
   "andromeeda",
@@ -33,6 +34,19 @@ export default {
     const code = await fetch(RAW_SOURCE).then((r) => r.text());
     const theme = THEMES[Math.floor(Math.random() * THEMES.length)];
     const userAgent = req.headers.get("user-agent");
+    const accept = req.headers.get("accept");
+
+    if (accept === "image/png" || req.url.endsWith("og")) {
+      const { codeToImage } = await import("shiki-image");
+      const buffer = await codeToImage(code, {
+        lang: "typescript",
+        theme,
+        font: "https://fonts.bunny.net/ubuntu-sans-mono/files/ubuntu-sans-mono-latin-400-normal.woff2",
+      });
+      return new Response(new Uint8Array(buffer), {
+        headers: { "Content-Type": "image/png" },
+      });
+    }
 
     if (userAgent.startsWith("curl/")) {
       delete globalThis.process.env.NO_COLOR;
@@ -49,8 +63,8 @@ export default {
           top: 10,
           bottom: 10,
         },
-        userAgent, /* use system font */
-      },
+        userAgent /* use system font */,
+      }
     );
 
     return new Response(
@@ -60,6 +74,8 @@ export default {
         <title>Modern Monaco Demo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style> body { padding: 0; margin: 0 } </style>
+        <meta property="og:image" content="${new URL("/og", req.url)}" />
+        <meta name="twitter:card" content="summary_large_image" />
       </head>
       <body>
       ${editor}
@@ -80,7 +96,7 @@ export default {
         });
       </script>
     `,
-      { headers: { "Content-Type": "text/html" } },
+      { headers: { "Content-Type": "text/html" } }
     );
   },
 };
