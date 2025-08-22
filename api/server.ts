@@ -4,8 +4,7 @@ import { renderToWebComponent } from "modern-monaco/ssr";
 // Powered by https://github.com/esm-dev/modern-monaco
 // Demo source: https://github.com/pi0/modern-monaco-demo
 
-const RAW_SOURCE =
-  "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
+const RAW_SOURCE = "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
 
 const THEMES = [
   "andromeeda",
@@ -63,8 +62,8 @@ export default {
           top: 10,
           bottom: 10,
         },
-        userAgent /* use system font */,
-      }
+        userAgent, /* use system font */
+      },
     );
 
     return new Response(
@@ -88,7 +87,8 @@ export default {
               importMap: {
                 imports: {
                   "modern-monaco/": "https://esm.sh/modern-monaco/",
-                  "@shikijs/": "https://esm.sh/@shikijs/"
+                  "@shikijs/": "https://esm.sh/@shikijs/",
+                  "shiki-image": "https://esm.sh/shiki-image"
                 },
               },
             },
@@ -96,7 +96,7 @@ export default {
         });
       </script>
     `,
-      { headers: { "Content-Type": "text/html" } }
+      { headers: { "Content-Type": "text/html" } },
     );
   },
 };
