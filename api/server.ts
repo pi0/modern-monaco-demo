@@ -4,29 +4,11 @@ import { renderToWebComponent } from "modern-monaco/ssr";
 // Powered by https://github.com/esm-dev/modern-monaco
 // Demo source: https://github.com/pi0/modern-monaco-demo
 
-const RAW_SOURCE = "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
+const RAW_SOURCE =
+  "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
 
-const THEMES = [
-  "andromeeda",
-  "aurora-x",
-  "ayu-dark",
-  "catppuccin-mocha",
-  "dark-plus",
-  "dracula",
-  "everforest-dark",
-  "github-dark",
-  "gruvbox-dark-soft",
-  "material-theme-darker",
-  "min-dark",
-  "night-owl",
-  "one-dark-pro",
-  "rose-pine-moon",
-  "slack-dark",
-  "solarized-dark",
-  "tokyo-night",
-  "vesper",
-  "vitesse-dark",
-] as const;
+// prettier-ignore
+const THEMES = ["andromeeda","aurora-x","ayu-dark","catppuccin-mocha","dark-plus","dracula","everforest-dark","github-dark","gruvbox-dark-soft","material-theme-darker","min-dark","night-owl","one-dark-pro","rose-pine-moon","slack-dark","solarized-dark","tokyo-night","vesper","vitesse-dark"] as const;
 
 export default {
   async fetch(req: Request): Promise<Response> {
@@ -35,13 +17,10 @@ export default {
     const userAgent = req.headers.get("user-agent");
     const accept = req.headers.get("accept");
 
-    if (accept === "image/png" || req.url.endsWith("og")) {
+    if (req.url.endsWith("og")) {
       const { codeToImage } = await import("shiki-image");
-      const buffer = await codeToImage(code, {
-        lang: "typescript",
-        theme,
-        font: "https://fonts.bunny.net/ubuntu-sans-mono/files/ubuntu-sans-mono-latin-400-normal.woff2",
-      });
+      let subCode = code.split("\n").slice(13, 55).join("\n");
+      const buffer = await codeToImage(subCode, { lang: "typescript", theme });
       return new Response(new Uint8Array(buffer), {
         headers: { "Content-Type": "image/png" },
       });
@@ -58,12 +37,9 @@ export default {
       { code, filename: "server.ts" },
       {
         theme,
-        padding: {
-          top: 10,
-          bottom: 10,
-        },
-        userAgent, /* use system font */
-      },
+        padding: { top: 10, bottom: 10 },
+        userAgent /* use system font */,
+      }
     );
 
     return new Response(
@@ -96,7 +72,7 @@ export default {
         });
       </script>
     `,
-      { headers: { "Content-Type": "text/html" } },
+      { headers: { "Content-Type": "text/html" } }
     );
   },
 };

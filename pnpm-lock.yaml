@@ -15,8 +15,8 @@ importers:
         specifier: ^0.1.5
         version: 0.1.5(typescript@5.9.2)
       shiki-image:
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.1.2
+        version: 0.1.2
     devDependencies:
       '@types/node':
         specifier: ^24.3.0
@@ -55,42 +55,54 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@takumi-rs/core-darwin-arm64@0.26.2':
-    resolution: {integrity: sha512-aZ4mjdRMJz5DZaQZvKTp03TMVDgWHboo6RpTkk36jlCaTjn7CjH/+Juy/ok3eVOklW0G//TmybT4ks3Ddn7F0A==}
+  '@takumi-rs/core-darwin-arm64@0.27.2':
+    resolution: {integrity: sha512-E2hEKljOM15Z7HIwkWvA1wwJWZitOT8m3So3Vdc3vY03+Q26zWZ7oKXNqsocJTTPsVtm0EFh2aOA/KDfu+oVNg==}
     engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
     cpu: [arm64]
     os: [darwin]
 
-  '@takumi-rs/core-linux-arm64-gnu@0.26.2':
-    resolution: {integrity: sha512-ba4HHrReyAZZdkYQh92cgLoORckJg/KJAxp+jc6+g2Et5tm/cJv+u2AzDLxLMzonIFXvdikJj1wGJkMMrHqlPA==}
+  '@takumi-rs/core-linux-arm64-gnu@0.27.2':
+    resolution: {integrity: sha512-X5DCnH/1AQVE4Lq5F+titCnW3crG7MKtnpVgUEXM8i2NSF3/pYILESeM//3p9yr19gi7FSCGWZ6uqJs3QhViaQ==}
     engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
     cpu: [arm64]
     os: [linux]
 
-  '@takumi-rs/core-linux-arm64-musl@0.26.2':
-    resolution: {integrity: sha512-F5hH+0G1bX/9VbGQGIw6kRhK0j97NbUiMG5WHOdpGwzyhItV9hYCupNbBDDDc5Tw2cLBOKztd7Ckr/ZXdnKANw==}
+  '@takumi-rs/core-linux-arm64-musl@0.27.2':
+    resolution: {integrity: sha512-X0EuWHDRtdgPxwPO/gKm+/Wm55ibh/BZbXz1uj/pOeP2+73uYzFm9LsX200GIEm5DrX6QSpeflrMvnWI/wCENw==}
     engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
     cpu: [arm64]
     os: [linux]
 
-  '@takumi-rs/core-linux-x64-gnu@0.26.2':
-    resolution: {integrity: sha512-cjD+RFkdtjLG1tnXzTpHdOTxxnZMQiXLGsxEN+2P0UdwHrKiW/upnGtGXnhGQB53TNOEDvso0PrU8gmqV83wBw==}
+  '@takumi-rs/core-linux-x64-gnu@0.27.2':
+    resolution: {integrity: sha512-NqCb2B9plqCO+qUmcagtchCDE+OtMVmwJlgwsWSAxXLxdRXPxUoIR1GRp2rey2nLtLjk+sbtGI466fT88pZ+kg==}
     engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
     cpu: [x64]
     os: [linux]
 
-  '@takumi-rs/core-linux-x64-musl@0.26.2':
-    resolution: {integrity: sha512-YStSyjCYukQXaVvB9Rw0mRsIac4/Pkr2IPTQOhbJgw3dPeU80HtGvSTvn/eItl6dFddlMGprZIV4BDwFLQNWGQ==}
+  '@takumi-rs/core-linux-x64-musl@0.27.2':
+    resolution: {integrity: sha512-13qygidU9cptVX1PPc7iTXHGpo5Bb54pIE0P52z+dbziu4wTvEYJAWIinVfXAoE0i09uaihDLX5qaDBJB7mZ3Q==}
     engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
     cpu: [x64]
     os: [linux]
 
-  '@takumi-rs/core@0.26.2':
-    resolution: {integrity: sha512-++WCYlNB6XZB6Fi8cnS0VNFCS9AecWvX9xQ0uYBwTQOnlomhidDX3CTqwEHLPwR+J4QxDQLdf/lAN4hHU9NhIA==}
+  '@takumi-rs/core-win32-arm64-msvc@0.27.2':
+    resolution: {integrity: sha512-2yvTsYUzcFdHpYq/JqpIDgsCUXnjUoljgeu5WhOlU1h+cZShgOb/8h+Vo0LSziPO9fgmxD0BI8RfhauRKMYwAA==}
+    engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@takumi-rs/core-win32-x64-msvc@0.27.2':
+    resolution: {integrity: sha512-MfhcQebn8hOWwQdMwfWzznLvMThJmurR2em9llVYaNDDcbiogAFiA4yXk8uqBIy2BZHihLb6SBhqE4NFB0Rw5w==}
+    engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
+    cpu: [x64]
+    os: [win32]
+
+  '@takumi-rs/core@0.27.2':
+    resolution: {integrity: sha512-yWI06aR3EMGDixB7rysL16V8UiDJ36BIvwRCb4e1BM3jaJ5oVQOIBQO8wYMyfjENH96ken4IO50uavwxTHuesg==}
     engines: {node: '>= 12.22.0 < 13 || >= 14.17.0 < 15 || >= 15.12.0 < 16 || >= 16.0.0'}
 
-  '@takumi-rs/helpers@0.26.2':
-    resolution: {integrity: sha512-anG0Z/4npd4nCHnpQdYetkiJAglkax8oY+on6SzRVYlBWlbv42VGx/sCmMFFYOMDfJMYVbvM1+bJNzBL7bHJnw==}
+  '@takumi-rs/helpers@0.27.2':
+    resolution: {integrity: sha512-1EAybS4waIrSG4Mg0D2819Ze9GeWDK+CFg1olb0aaLgwUTh206jsYVUf4M5TnZ7ySKR2C7k3T2wfC3nKU+y7XQ==}
     peerDependencies:
       react-dom: ^19.0.0
     peerDependenciesMeta:
@@ -192,8 +204,8 @@ packages:
   regex@6.0.1:
     resolution: {integrity: sha512-uorlqlzAKjKQZ5P+kTJr3eeJGSVroLKoHmquUj4zHWuR+hEyNqlXsSKlYYF5F4NI6nl7tWCs0apKJ0lmfsXAPA==}
 
-  shiki-image@0.1.0:
-    resolution: {integrity: sha512-0fbhmJ1/osocJGLXLuTruB8JEdecSPCSI8MiC+AkYZxTGEE7Ke8U6boFsQ0KjHKx8X3qX7oyAEKmxs8J9VAfdQ==}
+  shiki-image@0.1.2:
+    resolution: {integrity: sha512-OoeJgcSJnawAyplJBJbPxK5veG+Ke5VcT1xggDncGe9jh0mDlWS1ysksNo9RJqZAwlqVpAYwsPvC+wswZiq8Rw==}
 
   shiki@3.11.0:
     resolution: {integrity: sha512-VgKumh/ib38I1i3QkMn6mAQA6XjjQubqaAYhfge71glAll0/4xnt8L2oSuC45Qcr/G5Kbskj4RliMQddGmy/Og==}
@@ -286,30 +298,38 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@takumi-rs/core-darwin-arm64@0.26.2':
+  '@takumi-rs/core-darwin-arm64@0.27.2':
     optional: true
 
-  '@takumi-rs/core-linux-arm64-gnu@0.26.2':
+  '@takumi-rs/core-linux-arm64-gnu@0.27.2':
     optional: true
 
-  '@takumi-rs/core-linux-arm64-musl@0.26.2':
+  '@takumi-rs/core-linux-arm64-musl@0.27.2':
     optional: true
 
-  '@takumi-rs/core-linux-x64-gnu@0.26.2':
+  '@takumi-rs/core-linux-x64-gnu@0.27.2':
     optional: true
 
-  '@takumi-rs/core-linux-x64-musl@0.26.2':
+  '@takumi-rs/core-linux-x64-musl@0.27.2':
     optional: true
 
-  '@takumi-rs/core@0.26.2':
+  '@takumi-rs/core-win32-arm64-msvc@0.27.2':
+    optional: true
+
+  '@takumi-rs/core-win32-x64-msvc@0.27.2':
+    optional: true
+
+  '@takumi-rs/core@0.27.2':
     optionalDependencies:
-      '@takumi-rs/core-darwin-arm64': 0.26.2
-      '@takumi-rs/core-linux-arm64-gnu': 0.26.2
-      '@takumi-rs/core-linux-arm64-musl': 0.26.2
-      '@takumi-rs/core-linux-x64-gnu': 0.26.2
-      '@takumi-rs/core-linux-x64-musl': 0.26.2
+      '@takumi-rs/core-darwin-arm64': 0.27.2
+      '@takumi-rs/core-linux-arm64-gnu': 0.27.2
+      '@takumi-rs/core-linux-arm64-musl': 0.27.2
+      '@takumi-rs/core-linux-x64-gnu': 0.27.2
+      '@takumi-rs/core-linux-x64-musl': 0.27.2
+      '@takumi-rs/core-win32-arm64-msvc': 0.27.2
+      '@takumi-rs/core-win32-x64-msvc': 0.27.2
 
-  '@takumi-rs/helpers@0.26.2': {}
+  '@takumi-rs/helpers@0.27.2': {}
 
   '@types/hast@3.0.4':
     dependencies:
@@ -420,10 +440,10 @@ snapshots:
     dependencies:
       regex-utilities: 2.3.0
 
-  shiki-image@0.1.0:
+  shiki-image@0.1.2:
     dependencies:
-      '@takumi-rs/core': 0.26.2
-      '@takumi-rs/helpers': 0.26.2
+      '@takumi-rs/core': 0.27.2
+      '@takumi-rs/helpers': 0.27.2
       shiki: 3.11.0
     transitivePeerDependencies:
       - react-dom

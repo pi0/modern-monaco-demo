@@ -9,7 +9,7 @@
   "dependencies": {
     "@shikijs/cli": "^3.11.0",
     "modern-monaco": "^0.1.5",
-    "shiki-image": "^0.1.0"
+    "shiki-image": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
