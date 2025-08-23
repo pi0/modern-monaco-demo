@@ -1,8 +1,10 @@
 import { renderToWebComponent } from "modern-monaco/ssr";
 
-// Demo displays its own server code inside the editor
-// Powered by https://github.com/esm-dev/modern-monaco
-// Demo source: https://github.com/pi0/modern-monaco-demo
+/**
+ * This demo displays its own server code inside the editor
+ * Demo source: https://github.com/pi0/modern-monaco-demo
+ * Powered by   https://github.com/esm-dev/modern-monaco
+ */
 
 const RAW_SOURCE =
   "https://raw.githubusercontent.com/pi0/modern-monaco-demo/refs/heads/main/api/server.ts";
@@ -15,7 +17,6 @@ export default {
     const code = await fetch(RAW_SOURCE).then((r) => r.text());
     const theme = THEMES[Math.floor(Math.random() * THEMES.length)];
     const userAgent = req.headers.get("user-agent");
-    const accept = req.headers.get("accept");
 
     if (req.url.endsWith("og")) {
       const { codeToImage } = await import("shiki-image");
