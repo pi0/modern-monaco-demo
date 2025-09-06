@@ -12,8 +12,8 @@ importers:
         specifier: ^3.11.0
         version: 3.11.0
       modern-monaco:
-        specifier: ^0.1.5
-        version: 0.1.5(typescript@5.9.2)
+        specifier: ^0.1.9
+        version: 0.1.9(typescript@5.9.2)
       shiki-image:
         specifier: ^0.1.2
         version: 0.1.2
@@ -181,8 +181,8 @@ packages:
   micromark-util-types@2.0.2:
     resolution: {integrity: sha512-Yw0ECSpJoViF1qTU4DC6NwtC4aWGt1EkzaQB8KPPyCRR8z9TWeV0HbEFGTO+ZY1wB22zmxnJqhPyTpOVCpeHTA==}
 
-  modern-monaco@0.1.5:
-    resolution: {integrity: sha512-EO7GapbTurdey0d1THcfFxGmCoBtHuG5NSnvAosNvl0umXQF+yWQUDFHzWGH1xbvAJ2fwCUYdI0/R8N0orSGXg==}
+  modern-monaco@0.1.9:
+    resolution: {integrity: sha512-Iuo9qqyFq8D0M1ueE4lqMuCAh3cSGpsd9QJ/wCweN32EsNC1tdqCKo7xOxvTg39G+dL1xui04ud7x859J9UdmA==}
     peerDependencies:
       typescript: '>= 5.0.0'
 
@@ -416,7 +416,7 @@ snapshots:
 
   micromark-util-types@2.0.2: {}
 
-  modern-monaco@0.1.5(typescript@5.9.2):
+  modern-monaco@0.1.9(typescript@5.9.2):
     dependencies:
       typescript: 5.9.2
 
